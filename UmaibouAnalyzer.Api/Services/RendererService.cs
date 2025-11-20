@@ -61,9 +61,9 @@ public class RendererService : IRendererService
             // 斜め上から俯瞰
             new ViewpointRequest
             {
-                PositionX = 2.0,
-                PositionY = 2.5,
-                PositionZ = 2.0,
+                PositionX = 1.0,
+                PositionY = 1.0,
+                PositionZ = 1.0,
                 TargetX = 0.0,
                 TargetY = 0.0,
                 TargetZ = 0.0,
@@ -75,7 +75,7 @@ public class RendererService : IRendererService
             // 真横から
             new ViewpointRequest
             {
-                PositionX = 3.0,
+                PositionX = 2.0,
                 PositionY = 0.0,
                 PositionZ = 0.0,
                 TargetX = 0.0,
@@ -90,8 +90,8 @@ public class RendererService : IRendererService
             new ViewpointRequest
             {
                 PositionX = 0.0,
-                PositionY = 3.0,
-                PositionZ = 0.0,
+                PositionY = 2.0,
+                PositionZ = 0.00001,
                 TargetX = 0.0,
                 TargetY = 0.0,
                 TargetZ = 0.0,
