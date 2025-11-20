@@ -12,17 +12,6 @@ builder.Services.AddHttpClient<IRendererService, RendererService>();
 // Register AnalysisService
 builder.Services.AddSingleton<IAnalysisService, AnalysisService>();
 
-// Configure CORS if needed
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(policy =>
-    {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
-    });
-});
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -31,8 +20,6 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
-app.UseCors();
 app.MapControllers();
 
 app.Run();
