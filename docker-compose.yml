@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  umaibou-analyzer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:8080"
+      - "5001:8081"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      - RendererApiUrl=${RENDERER_API_URL:-http://host.docker.internal:5001}
+      - OpenAI__ApiKey=${OPENAI_API_KEY}
+      - OpenAI__Model=${OPENAI_MODEL:-gpt-4o}
+    volumes:
+      - ./appsettings.json:/app/appsettings.json:ro
+    restart: unless-stopped
+    networks:
+      - umaibou-network
+
+networks:
+  umaibou-network:
+    driver: bridge
