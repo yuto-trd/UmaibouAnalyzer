@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   umaibou-analyzer:
     build:
@@ -14,6 +12,7 @@ services:
       - RendererApiUrl=${RENDERER_API_URL:-http://host.docker.internal:5001}
       - OpenAI__ApiKey=${OPENAI_API_KEY}
       - OpenAI__Model=${OPENAI_MODEL:-gpt-4o}
+      - OpenAI__Endpoint=${OPENAI_ENDPOINT:-https://api.openai.com/v1}
     volumes:
       - ./appsettings.json:/app/appsettings.json:ro
     restart: unless-stopped
