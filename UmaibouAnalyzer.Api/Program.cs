@@ -23,19 +23,14 @@ builder.Services.AddHttpClient<IRendererService, RendererService>();
 // Register AnalysisService
 builder.Services.AddSingleton<IAnalysisService, AnalysisService>();
 
-var otlpEndpoint = builder.Configuration["OTEL_EXPORTER_OTLP_ENDPOINT"];
+builder.Services.AddOpenTelemetry()
+    .UseGrafana();
 
-if (!string.IsNullOrEmpty(otlpEndpoint))
+// Configure Logging
+builder.Logging.AddOpenTelemetry(logging =>
 {
-    builder.Services.AddOpenTelemetry()
-        .UseGrafana();
-
-    // Configure Logging
-    builder.Logging.AddOpenTelemetry(logging =>
-    {
-        logging.UseGrafana();
-    });
-}
+    logging.UseGrafana();
+});
 
 var app = builder.Build();
 
