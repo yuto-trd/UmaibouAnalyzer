@@ -99,8 +99,17 @@ public class AnalyzeController : ControllerBase
         if (stats.Speed < 0 || stats.Speed > 100)
             return "Speed must be between 0 and 100";
 
-        if (stats.AttackPower < 0 || stats.AttackPower > 100)
-            return "Attack power must be between 0 and 100";
+        if (stats.ShortRangeAttackPower < 0 || stats.ShortRangeAttackPower > 100)
+            return "Short range attack power must be between 0 and 100";
+
+        if (stats.LongRangeAttackPower < 0 || stats.LongRangeAttackPower > 100)
+            return "Long range attack power must be between 0 and 100";
+
+        if (stats.AttackRange < 0 || stats.AttackRange > 100)
+            return "Attack range must be between 0 and 100";
+
+        if (stats.AttackCooldown < 0 || stats.AttackCooldown > 100)
+            return "Attack cooldown must be between 0 and 100";
 
         if (stats.AttackSpeed < 0 || stats.AttackSpeed > 100)
             return "Attack speed must be between 0 and 100";
