@@ -68,11 +68,29 @@ public class AnalysisService : IAnalysisService
                             ""maximum"": 100,
                             ""description"": ""行動速度（0-100）""
                         },
-                        ""attack_power"": {
+                        ""short_range_attack_power"": {
                             ""type"": ""integer"",
                             ""minimum"": 0,
                             ""maximum"": 100,
-                            ""description"": ""攻撃力（0-100）""
+                            ""description"": ""近接攻撃力（0-100）""
+                        },
+                        ""long_range_attack_power"": {
+                            ""type"": ""integer"",
+                            ""minimum"": 0,
+                            ""maximum"": 100,
+                            ""description"": ""遠距離攻撃力（0-100）""
+                        },
+                        ""attack_range"": {
+                            ""type"": ""integer"",
+                            ""minimum"": 0,
+                            ""maximum"": 100,
+                            ""description"": ""攻撃範囲（0-100）""
+                        },
+                        ""attack_cooldown"": {
+                            ""type"": ""integer"",
+                            ""minimum"": 0,
+                            ""maximum"": 100,
+                            ""description"": ""攻撃クールダウン（0-100）""
                         },
                         ""attack_speed"": {
                             ""type"": ""integer"",
@@ -92,7 +110,7 @@ public class AnalysisService : IAnalysisService
                             ""description"": ""属性タイプ""
                         }
                     },
-                    ""required"": [""name"", ""hp"", ""speed"", ""attack_power"", ""attack_speed"", ""defense_power"", ""type""],
+                    ""required"": [""name"", ""hp"", ""speed"", ""short_range_attack_power"", ""long_range_attack_power"", ""attack_range"", ""attack_cooldown"", ""attack_speed"", ""defense_power"", ""type""],
                     ""additionalProperties"": false
                 }
                 "),
@@ -126,11 +144,20 @@ public class AnalysisService : IAnalysisService
             **speed**
             行動速度．hpとは反対にサイズが小さいほど速度が速くなります．
 
-            **attack_power**
-            攻撃力．中身が詰まっているもの（例えば金属類）ほど攻撃力が高くなります．
+            **short_range_attack_power**
+            近接攻撃力．中身が詰まっているもの（例えば金属類）ほど近接攻撃力が高くなります．
+
+            **long_range_attack_power**
+            遠距離攻撃力．細長い形状や尖った部分があるほど遠距離攻撃力が高くなります．
+
+            **attack_range**
+            攻撃範囲．造形の大きさや広がり具合によって決まります．大きく広がっている造形ほど攻撃範囲が広くなります．
+
+            **attack_cooldown**
+            攻撃クールダウン．造形の複雑さや重厚さによって決まります．複雑で重厚な造形ほどクールダウンが長く（値が大きく）なります．
 
             **attack_speed**
-            攻撃速度．attack_powerとは反対に中身が詰まっていると攻撃速度が下がります．
+            攻撃速度．中身が詰まっていると攻撃速度が下がります．
 
             **defense_power**
             防御力．造形が作り込まれているほど防御力が上がります．

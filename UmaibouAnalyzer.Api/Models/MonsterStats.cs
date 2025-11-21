@@ -13,8 +13,17 @@ public class MonsterStats
     [JsonPropertyName("speed")]
     public int Speed { get; set; }
 
-    [JsonPropertyName("attack_power")]
-    public int AttackPower { get; set; }
+    [JsonPropertyName("short_range_attack_power")]
+    public int ShortRangeAttackPower { get; set; }
+
+    [JsonPropertyName("long_range_attack_power")]
+    public int LongRangeAttackPower { get; set; }
+
+    [JsonPropertyName("attack_range")]
+    public int AttackRange { get; set; }
+
+    [JsonPropertyName("attack_cooldown")]
+    public int AttackCooldown { get; set; }
 
     [JsonPropertyName("attack_speed")]
     public int AttackSpeed { get; set; }
