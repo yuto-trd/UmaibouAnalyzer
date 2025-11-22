@@ -106,8 +106,8 @@ public class AnalysisService : IAnalysisService
                         },
                         ""type"": {
                             ""type"": ""string"",
-                            ""enum"": [""red"", ""blue"", ""green"", ""yellow"", ""brown"", ""white"", ""black""],
-                            ""description"": ""属性タイプ""
+                            ""enum"": [""smallest"", ""small"", ""medium"", ""large"", ""largest""],
+                            ""description"": ""大きさタイプ""
                         }
                     },
                     ""required"": [""name"", ""hp"", ""speed"", ""short_range_attack_power"", ""long_range_attack_power"", ""attack_range"", ""attack_cooldown"", ""attack_speed"", ""defense_power"", ""type""],
@@ -163,7 +163,7 @@ public class AnalysisService : IAnalysisService
             防御力．造形が作り込まれているほど防御力が上がります．
 
             **type**
-            特徴．例えばyellowなら雷属性，greenなら風属性，redなら火属性，brownなら土属性です．お菓子の色を元に判別されます．
+            大きさの種類。smallest, small, medium, large, largestの５段階。大きさを0-100の数値で表したとき、0-20の場合は`smallest`, 20-40の場合は`small`, 40-60の場合は`medium`, 60-80の場合は`large`, 80-100の場合が`largest`です。
             """;
     }
 }
